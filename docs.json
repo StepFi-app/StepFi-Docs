@@ -6,9 +6,7 @@
     "light": "https://stepfi.vercel.app/favicon.png",
     "dark": "https://stepfi.vercel.app/favicon.png"
   },
-  "editPage": {
-  "enabled": false
-  },
+  "editPage": false,
   "theme": {
     "defaultTheme": "dark",
     "primary": "#22C55E",
