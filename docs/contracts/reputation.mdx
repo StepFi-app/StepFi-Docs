@@ -1,0 +1,43 @@
+---
+title: Reputation Contract
+description: On-chain credit scoring
+---
+
+# Reputation Contract
+
+Manages on-chain reputation scores for all StepFi participants.
+
+**Contract ID**: CC3BO57ZRJGA63QJBIBSOMI25Z3X2I5CYTARYRAUXUAILX6L3OWBL5SB
+
+[View on Stellar Expert](https://stellar.expert/explorer/testnet/contract/CC3BO57ZRJGA63QJBIBSOMI25Z3X2I5CYTARYRAUXUAILX6L3OWBL5SB)
+
+## Functions
+
+### get_score()
+
+Returns the reputation score for a wallet address.
+
+```rust
+pub fn get_score(env: Env, user: Address) -> u32
+```
+
+### update_score()
+
+Updates a user's score. Called by the creditline contract
+after repayment events.
+
+```rust
+pub fn update_score(
+    env: Env,
+    user: Address,
+    delta: i32,
+) -> u32
+```
+
+### set_admin()
+
+Sets the contract admin. First call seeds the admin.
+
+```rust
+pub fn set_admin(env: Env, new_admin: Address)
+```

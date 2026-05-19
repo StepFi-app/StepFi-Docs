@@ -1,0 +1,41 @@
+---
+title: Code Standards
+description: Standards that apply to all StepFi repos
+---
+
+# Code Standards
+
+These standards apply across all three StepFi repositories.
+
+## Universal Rules
+
+- Read context/ files before writing any code
+- Update context/progress-tracker.md with every PR
+- Never commit secrets, keys, or credentials
+- Every PR must reference an issue number
+
+## Backend (NestJS)
+
+- Zero TypeScript errors: npm run build must pass
+- No any types anywhere in the codebase
+- Every new endpoint needs full Swagger decorators:
+  @ApiOperation, @ApiResponse, @ApiTags
+- Every schema change needs a new Supabase migration file
+- Services handle business logic, controllers handle HTTP only
+- No direct Supabase calls in controllers
+
+## Smart Contracts (Rust/Soroban)
+
+- require_auth() must be the first line of every mutating function
+- extend_ttl() must be called after every persistent storage write
+- All 93 existing tests must still pass with every PR
+- New tests required for every new function
+- No .unwrap() or .expect() on user-facing paths
+
+## Mobile (React Native)
+
+- No hardcoded hex colors: use constants/colors.ts only
+- No API calls in screen files: use services/ only
+- Every screen needs loading, error, and empty states
+- Lucide React Native for all icons
+- npx expo export --platform web must pass

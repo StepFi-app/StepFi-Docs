@@ -1,0 +1,55 @@
+---
+title: Vendor Registry Contract
+description: Learning vendor management
+---
+
+# Vendor Registry Contract
+
+Stores and manages verified learning vendors on-chain.
+
+**Contract ID**: CCZ6T6NYCDNI26VGTPXKKWQDR7JCIZZ24LCEG4MMYHZJAG6BPWIVAU2L
+
+[View on Stellar Expert](https://stellar.expert/explorer/testnet/contract/CCZ6T6NYCDNI26VGTPXKKWQDR7JCIZZ24LCEG4MMYHZJAG6BPWIVAU2L)
+
+## Functions
+
+### register_vendor()
+
+Registers a new vendor. Admin only.
+
+```rust
+pub fn register_vendor(
+    env: Env,
+    vendor: Address,
+    name: Symbol,
+    category: VendorCategory,
+) -> u32
+```
+
+### get_vendor()
+
+Returns vendor details by address.
+
+```rust
+pub fn get_vendor(env: Env, vendor: Address) -> Option<Vendor>
+```
+
+### get_vendor_count()
+
+Returns the total number of registered vendors.
+
+```rust
+pub fn get_vendor_count(env: Env) -> u32
+```
+
+## Vendor Categories
+
+```rust
+pub enum VendorCategory {
+    School,
+    Bootcamp,
+    Electronics,
+    OnlineCourse,
+    DevTools,
+}
+```

@@ -1,0 +1,94 @@
+{
+  "name": "StepFi Protocol",
+  "description": "Open-source BNPL protocol on Stellar for learners in emerging markets. Credit without banks. Progress without limits.",
+  "favicon": "https://stepfi.vercel.app/favicon.png",
+  "logo": {
+    "light": "https://stepfi.vercel.app/favicon.png",
+    "dark": "https://stepfi.vercel.app/favicon.png"
+  },
+  "theme": {
+    "defaultTheme": "dark",
+    "primary": "#22C55E",
+    "primaryDark": "#22C55E",
+    "backgroundDark": "#080F1A"
+  },
+  "header": {
+    "showName": true,
+    "showGitHubCard": true,
+    "links": [
+      { "title": "Landing Page", "href": "https://stepfi.vercel.app" },
+      { "title": "API Docs", "href": "https://stepfi-api.onrender.com/api/v1/docs" },
+      { "title": "Demo", "href": "https://stepfi.vercel.app/demo" }
+    ]
+  },
+  "social": {
+    "github": "StepFi-app/StepFi-Docs"
+  },
+  "sidebar": [
+    {
+      "pages": [
+        { "title": "Overview", "href": "/", "icon": "book" },
+        { "title": "Architecture", "href": "/architecture", "icon": "sitemap" },
+        { "title": "Quick Start", "href": "/quick-start", "icon": "rocket" }
+      ]
+    },
+    {
+      "group": "Protocol",
+      "icon": "shield",
+      "pages": [
+        { "title": "How It Works", "href": "/protocol/how-it-works", "icon": "circle-dot" },
+        { "title": "Learner Flow", "href": "/protocol/learner-flow", "icon": "graduation-cap" },
+        { "title": "Sponsor Flow", "href": "/protocol/sponsor-flow", "icon": "building-bank" },
+        { "title": "Mentor Vouching", "href": "/protocol/mentor-vouching", "icon": "award" },
+        { "title": "Reputation System", "href": "/protocol/reputation", "icon": "star" }
+      ]
+    },
+    {
+      "group": "Smart Contracts",
+      "icon": "code",
+      "pages": [
+        { "title": "Overview", "href": "/contracts/overview", "icon": "layout-grid" },
+        { "title": "Creditline", "href": "/contracts/creditline", "icon": "credit-card" },
+        { "title": "Reputation", "href": "/contracts/reputation", "icon": "star" },
+        { "title": "Liquidity Pool", "href": "/contracts/liquidity-pool", "icon": "droplet" },
+        { "title": "Vendor Registry", "href": "/contracts/vendor-registry", "icon": "building-store" },
+        { "title": "Parameters", "href": "/contracts/parameters", "icon": "settings" }
+      ]
+    },
+    {
+      "group": "API Reference",
+      "icon": "api",
+      "pages": [
+        { "title": "Overview", "href": "/api/overview", "icon": "layout-grid" },
+        { "title": "Authentication", "href": "/api/authentication", "icon": "lock" },
+        { "title": "Loans", "href": "/api/loans", "icon": "credit-card" },
+        { "title": "Reputation", "href": "/api/reputation", "icon": "star" },
+        { "title": "Vendors", "href": "/api/vendors", "icon": "building-store" },
+        { "title": "Liquidity", "href": "/api/liquidity", "icon": "droplet" },
+        { "title": "Vouching", "href": "/api/vouching", "icon": "award" },
+        { "title": "Sponsors", "href": "/api/sponsors", "icon": "building-bank" },
+        { "title": "Playground", "href": "/api/playground", "icon": "player-play" }
+      ]
+    },
+    {
+      "group": "Mobile App",
+      "icon": "device-mobile",
+      "pages": [
+        { "title": "Overview", "href": "/mobile/overview", "icon": "layout-grid" },
+        { "title": "Wallet Connection", "href": "/mobile/wallet-connection", "icon": "wallet" },
+        { "title": "Screens", "href": "/mobile/screens", "icon": "device-mobile" }
+      ]
+    },
+    {
+      "group": "Contributing",
+      "icon": "git-pull-request",
+      "pages": [
+        { "title": "Overview", "href": "/contributing/overview", "icon": "layout-grid" },
+        { "title": "Code Standards", "href": "/contributing/code-standards", "icon": "code" },
+        { "title": "Smart Contracts", "href": "/contributing/contracts", "icon": "file-code" },
+        { "title": "Backend", "href": "/contributing/backend", "icon": "server" },
+        { "title": "Mobile", "href": "/contributing/mobile", "icon": "device-mobile" }
+      ]
+    }
+  ]
+}

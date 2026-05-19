@@ -1,0 +1,61 @@
+---
+title: Quick Start
+description: Get started contributing to StepFi
+---
+
+# Quick Start
+
+StepFi welcomes contributors through the Stellar Drips Wave program.
+
+## Prerequisites
+
+Before contributing, make sure you have:
+
+- Git
+- Node.js 20 or later
+- Rust with wasm32-unknown-unknown target
+- Stellar CLI v22 or later
+
+## Pick an Issue
+
+Browse open issues across all repos:
+
+<Cards>
+  <Card title="StepFi-Contracts Issues" href="https://github.com/StepFi-app/StepFi-Contracts/issues">
+    Rust and Soroban smart contract work
+  </Card>
+  <Card title="StepFi-API Issues" href="https://github.com/StepFi-app/StepFi-API/issues">
+    NestJS backend and API work
+  </Card>
+  <Card title="StepFi-App Issues" href="https://github.com/StepFi-app/StepFi-App/issues">
+    React Native mobile app work
+  </Card>
+</Cards>
+
+## Contribution Flow
+
+<Steps>
+  <Step title="Fork the repo">
+    Fork the relevant repository to your GitHub account.
+  </Step>
+  <Step title="Create a branch">
+    ```bash
+    git checkout -b feat/your-feature-name
+    ```
+  </Step>
+  <Step title="Read the context files">
+    Every repo has a context/ folder with architecture,
+    code standards, and progress tracker. Read these first.
+  </Step>
+  <Step title="Make your changes">
+    Follow the code standards in context/code-standards.md.
+    Run tests before pushing.
+  </Step>
+  <Step title="Open a PR">
+    Reference the issue number in your PR description.
+    Example: Closes #5
+  </Step>
+  <Step title="Get reviewed and merged">
+    Once approved and merged, your contribution is live.
+  </Step>
+</Steps>

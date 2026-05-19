@@ -1,0 +1,41 @@
+---
+title: Mentor Vouching
+description: How mentor vouching works in StepFi
+---
+
+# Mentor Vouching
+
+Mentor vouching is a trust mechanism that lets senior
+developers stake their reputation to help learners
+access better loan terms.
+
+## How It Works
+
+1. A learner requests a vouch from a mentor
+2. The mentor reviews the learner's profile and loan request
+3. If satisfied, the mentor calls vouch() on the vouching contract
+4. The learner's reputation score increases by up to 12 points
+5. Better score means lower interest rate and higher credit limit
+
+## Vouch Effects
+
+| Mentor Tier | Reputation Boost | Duration |
+|---|---|---|
+| Bronze (60 to 74) | +6 points | 3 months |
+| Silver (75 to 89) | +12 points | 6 months |
+| Gold (90 to 100) | +18 points | 12 months |
+
+## Risk to Mentor
+
+If the learner defaults on their loan, the mentor's
+reputation score decreases proportionally. This creates
+a strong incentive for mentors to only vouch for
+learners they trust.
+
+## Contract Status
+
+<Warning>
+The vouching contract is currently in development.
+It will be deployed in Phase 2. See issue #4 on
+StepFi-Contracts for implementation details.
+</Warning>

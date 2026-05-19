@@ -1,0 +1,38 @@
+---
+title: Reputation System
+description: How on-chain reputation works in StepFi
+---
+
+# Reputation System
+
+StepFi's reputation system is fully on-chain, powered
+by the reputation contract on Stellar testnet.
+
+## Score Calculation
+
+A learner's score starts at 50 and changes based on:
+
+| Event | Score Change |
+|---|---|
+| On-time installment payment | +2 to +6 |
+| Late payment (within grace period) | -2 |
+| Missed payment | -8 |
+| Profile completion | +8 |
+| Mentor vouch (Silver tier) | +12 |
+| Loan fully repaid | +10 |
+| Default | -30 |
+
+## Reputation Tiers
+
+| Tier | Score Range | Interest Rate | Credit Limit |
+|---|---|---|---|
+| Starter | 0 to 59 | 10% APR | $1,000 |
+| Bronze | 60 to 74 | 8% APR | $2,500 |
+| Silver | 75 to 89 | 6% APR | $5,000 |
+| Gold | 90 to 100 | 4% APR | $10,000 |
+
+## Contract
+
+Reputation Contract: CC3BO57ZRJGA63QJBIBSOMI25Z3X2I5CYTARYRAUXUAILX6L3OWBL5SB
+
+[View on Stellar Expert](https://stellar.expert/explorer/testnet/contract/CC3BO57ZRJGA63QJBIBSOMI25Z3X2I5CYTARYRAUXUAILX6L3OWBL5SB)

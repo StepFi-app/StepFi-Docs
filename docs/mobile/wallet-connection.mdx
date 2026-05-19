@@ -1,0 +1,62 @@
+---
+title: Wallet Connection
+description: Freighter and Lobstr integration
+---
+
+# Wallet Connection
+
+StepFi supports two Stellar wallets.
+
+## Freighter
+
+Freighter is a browser extension wallet built by the
+Stellar Development Foundation. Most trusted in the
+Stellar ecosystem.
+
+**Package**: @stellar/freighter-api
+
+```typescript
+import {
+  isConnected,
+  getPublicKey,
+  signTransaction,
+} from '@stellar/freighter-api'
+
+const connectFreighter = async () => {
+  const connected = await isConnected()
+  if (!connected) throw new Error('Freighter not installed')
+  const publicKey = await getPublicKey()
+  return publicKey
+}
+```
+
+## Lobstr
+
+Lobstr is the most popular mobile Stellar wallet in
+emerging markets. Connects via WalletConnect v2.
+
+**Package**: @walletconnect/web3wallet
+
+```typescript
+const connectLobstr = async () => {
+  const client = await Web3Wallet.init({
+    core: new Core({ projectId: WALLETCONNECT_PROJECT_ID }),
+    metadata: { name: 'StepFi', description: '...', url: '...', icons: [] }
+  })
+  // Show QR code for user to scan with Lobstr
+  // Return the connected wallet address
+}
+```
+
+## Signing Transactions
+
+Both wallets sign unsigned XDR returned by the API:
+
+```typescript
+const signAndSubmit = async (unsignedXdr: string) => {
+  const signedXdr = await signTransaction(unsignedXdr, {
+    networkPassphrase: Networks.TESTNET,
+  })
+  await api.post('/transactions/submit', { signedXdr })
+}
+```

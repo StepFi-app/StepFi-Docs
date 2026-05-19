@@ -1,0 +1,43 @@
+---
+title: Sponsor Flow
+description: How a sponsor earns yield on StepFi
+---
+
+# Sponsor Flow
+
+## Step 1: Connect Wallet
+
+Sponsors connect their Stellar wallet and complete a
+sponsor profile (name, organization type, focus area).
+
+## Step 2: Deposit to Pool
+
+The sponsor calls deposit() on the liquidity pool contract,
+sending USDC to the pool. In return they receive pool shares
+representing their ownership percentage.
+
+## Step 3: Pool Funds Loans
+
+The liquidity pool funds approved learner loans. The sponsor
+can see which loans their capital is backing.
+
+## Step 4: Earn Yield
+
+As learners repay installments, interest flows back to the
+pool. The sponsor's shares increase in value over time.
+
+## Step 5: Withdraw
+
+At any time, the sponsor can withdraw by calling withdraw()
+on the liquidity pool contract, redeeming their shares for
+USDC plus earned yield.
+
+## Pool Stats
+
+| Metric | Description |
+|---|---|
+| Total Value | Total USDC in the pool |
+| Available | Capital available for new loans |
+| Locked | Capital currently backing active loans |
+| APY | Annual yield based on loan interest |
+| Share Price | Current value of one pool share |

@@ -1,0 +1,64 @@
+---
+title: Liquidity Pool Contract
+description: Sponsor capital management
+---
+
+# Liquidity Pool Contract
+
+Manages sponsor deposits, pool shares, and yield distribution.
+
+**Contract ID**: CACKE7ML2BTOAGQTAAW5NEARHCFX4PXXKGEO6GMU6NHFBVYQFZRJS2BT
+
+[View on Stellar Expert](https://stellar.expert/explorer/testnet/contract/CACKE7ML2BTOAGQTAAW5NEARHCFX4PXXKGEO6GMU6NHFBVYQFZRJS2BT)
+
+## Functions
+
+### deposit()
+
+Sponsor deposits USDC into the pool and receives shares.
+
+```rust
+pub fn deposit(
+    env: Env,
+    depositor: Address,
+    amount: i128,
+) -> i128
+```
+
+Returns the number of shares minted.
+
+### withdraw()
+
+Sponsor redeems shares for USDC plus yield.
+
+```rust
+pub fn withdraw(
+    env: Env,
+    withdrawer: Address,
+    shares: i128,
+) -> i128
+```
+
+Returns the USDC amount returned.
+
+### get_pool_info()
+
+Returns current pool statistics.
+
+```rust
+pub fn get_pool_info(env: Env) -> PoolInfo
+```
+
+## Data Types
+
+### PoolInfo
+
+```rust
+pub struct PoolInfo {
+    pub total_deposits: i128,
+    pub total_shares: i128,
+    pub share_price: i128,
+    pub available_liquidity: i128,
+    pub locked_liquidity: i128,
+}
+```

@@ -1,0 +1,46 @@
+---
+title: Contributing to the API
+description: How to contribute NestJS backend code
+---
+
+# Contributing to the API
+
+## Setup
+
+```bash
+cd ~/Portfolio-Projects/StepFi-API
+cp .env.example .env
+# Fill in your environment variables
+npm install
+npm run build
+```
+
+## Architecture
+
+```
+src/
+  modules/
+    auth/         Wallet auth and JWT
+    learners/     Learner profiles
+    vendors/      Vendor registry
+    loans/        BNPL loan management
+    reputation/   On-chain reputation
+    liquidity/    Sponsor pool
+    vouching/     Mentor vouching
+    sponsors/     Sponsor profiles
+    health/       Health check
+  jobs/
+    nonce-cleanup/  Expired nonce cleanup
+  blockchain/
+    stellar.service.ts  Horizon client
+```
+
+## PR Checklist
+
+- [ ] npm run build passes with zero TypeScript errors
+- [ ] No new any types
+- [ ] Full Swagger decorators on all new endpoints
+- [ ] Migration file for any schema changes
+- [ ] Unit tests for new service methods
+- [ ] context/progress-tracker.md updated
+- [ ] PR references the issue number

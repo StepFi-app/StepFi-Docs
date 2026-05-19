@@ -1,0 +1,49 @@
+---
+title: Contributing to Smart Contracts
+description: How to contribute Rust/Soroban code
+---
+
+# Contributing to Smart Contracts
+
+## Setup
+
+```bash
+# Install Rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# Add WASM target
+rustup target add wasm32-unknown-unknown
+
+# Install Stellar CLI
+cargo install --locked stellar-cli --version 22.8.1 --features opt
+```
+
+## Build
+
+```bash
+cd ~/Portfolio-Projects/StepFi-Contracts
+
+# Build all contracts
+cargo build --target wasm32-unknown-unknown --release
+
+# Run tests
+cargo test --manifest-path contracts/creditline-contract/Cargo.toml
+```
+
+## Test Requirements
+
+Every PR to StepFi-Contracts must:
+
+1. Pass all existing tests (currently 96)
+2. Add new tests for every new function
+3. Test the happy path, error cases, and auth failures
+
+## PR Checklist
+
+- [ ] cargo build passes with zero errors
+- [ ] All 96 existing tests still pass
+- [ ] require_auth() is first line of every mutating function
+- [ ] extend_ttl() called after every persistent storage write
+- [ ] New tests written for every new function
+- [ ] context/progress-tracker.md updated
+- [ ] PR references the issue number

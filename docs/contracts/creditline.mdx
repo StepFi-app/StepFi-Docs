@@ -1,0 +1,104 @@
+---
+title: Creditline Contract
+description: The core BNPL lending contract
+---
+
+# Creditline Contract
+
+The creditline contract is the core of the StepFi protocol.
+It handles loan creation, approval, and repayment.
+
+**Contract ID**: CAQDHYG3TALPNXG466SZUMJEPOI7VYV732LPFF3GHE4ASPBCNMIQBS3X
+
+[View on Stellar Expert](https://stellar.expert/explorer/testnet/contract/CAQDHYG3TALPNXG466SZUMJEPOI7VYV732LPFF3GHE4ASPBCNMIQBS3X)
+
+## Functions
+
+### create_loan()
+
+Creates a new loan request in Pending status.
+
+```rust
+pub fn create_loan(
+    env: Env,
+    borrower: Address,
+    vendor: Address,
+    amount: i128,
+    installments: u32,
+    loan_type: LoanType,
+) -> Loan
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| borrower | Address | Learner's Stellar wallet address |
+| vendor | Address | Vendor's Stellar wallet address |
+| amount | i128 | Loan amount in stroops |
+| installments | u32 | Number of monthly payments |
+| loan_type | LoanType | Standard or LearnerInstallment |
+
+### approve_loan()
+
+Transitions a loan from Pending to Active. Admin only.
+
+```rust
+pub fn approve_loan(env: Env, loan_id: u64) -> Loan
+```
+
+### repay_installment()
+
+Processes a single installment payment.
+
+```rust
+pub fn repay_installment(
+    env: Env,
+    loan_id: u64,
+    installment_index: u32,
+) -> Loan
+```
+
+### get_loan()
+
+Returns loan details by ID.
+
+```rust
+pub fn get_loan(env: Env, loan_id: u64) -> Option<Loan>
+```
+
+## Data Types
+
+### Loan
+
+```rust
+pub struct Loan {
+    pub id: u64,
+    pub borrower: Address,
+    pub vendor: Address,
+    pub amount: i128,
+    pub installments: u32,
+    pub paid_installments: u32,
+    pub status: LoanStatus,
+    pub loan_type: LoanType,
+    pub created_at: u64,
+    pub repayments: Vec<RepaymentInstallment>,
+}
+```
+
+### LoanStatus
+
+```rust
+pub enum LoanStatus {
+    Pending,
+    Active,
+    Repaid,
+    Defaulted,
+}
+```
+
+## Events
+
+| Event | Trigger |
+|---|---|
+| LOANCREATED | create_loan() succeeds |
+| LOANAPPROVED | approve_loan() succeeds |
+| INSTALLMENTPAID | repay_installment() succeeds |

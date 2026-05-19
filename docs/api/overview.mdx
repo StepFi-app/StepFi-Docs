@@ -1,0 +1,60 @@
+---
+title: API Overview
+description: StepFi REST API with JWT authentication
+---
+
+# API Overview
+
+The StepFi API is a NestJS backend with 13 modules,
+serving as the bridge between the mobile app and
+the Stellar blockchain.
+
+**Base URL**: https://stepfi-api.onrender.com/api/v1
+
+**Interactive Docs**: [Swagger UI](https://stepfi-api.onrender.com/api/v1/docs)
+
+## Modules
+
+| Module | Base Path | Description |
+|---|---|---|
+| Auth | /auth | Wallet authentication and JWT tokens |
+| Users | /users | User profile management |
+| Learners | /learners | Learner profiles and data |
+| Vendors | /vendors | Learning vendor registry |
+| Loans | /loans | BNPL loan management |
+| Transactions | /transactions | On-chain transaction tracking |
+| Reputation | /reputation | On-chain reputation scores |
+| Liquidity | /liquidity | Sponsor pool operations |
+| Vouching | /vouching | Mentor vouching system |
+| Sponsors | /sponsors | Sponsor profile management |
+| Notifications | /notifications | Push notification management |
+| Health | /health | API health check |
+| Blockchain | /blockchain | Stellar event indexing |
+
+## Authentication
+
+StepFi uses wallet-based authentication. No passwords or
+emails required. See the [Authentication](/api/authentication)
+page for the full flow.
+
+## Response Format
+
+All endpoints return JSON with this structure:
+
+```json
+{
+  "data": {},
+  "message": "Success",
+  "statusCode": 200
+}
+```
+
+Errors follow RFC 7807:
+
+```json
+{
+  "statusCode": 400,
+  "message": "Validation failed",
+  "error": "Bad Request"
+}
+```

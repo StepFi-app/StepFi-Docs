@@ -1,0 +1,45 @@
+---
+title: Contributing to the Mobile App
+description: How to contribute React Native code
+---
+
+# Contributing to the Mobile App
+
+## Setup
+
+```bash
+cd ~/Portfolio-Projects/StepFi-App
+npm install
+npx expo start
+```
+
+## Architecture
+
+```
+app/
+  (auth)/         Auth screens (sign-in, onboarding)
+  (tabs)/         Main app tabs
+components/       Reusable UI components
+services/         API service layer
+stores/           Zustand state stores
+hooks/            Custom React hooks
+constants/        Colors, config, types
+```
+
+## Design System
+
+All colors come from constants/colors.ts. Never
+hardcode hex values in component files.
+
+All icons use Lucide React Native. Never use
+other icon libraries.
+
+## PR Checklist
+
+- [ ] No hardcoded hex colors
+- [ ] No API calls in screen files
+- [ ] Loading, error, and empty states all handled
+- [ ] Lucide React Native for all icons
+- [ ] npx expo export --platform web passes
+- [ ] context/progress-tracker.md updated
+- [ ] PR references the issue number

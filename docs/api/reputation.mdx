@@ -1,0 +1,36 @@
+---
+title: Reputation API
+description: On-chain reputation score endpoints
+---
+
+# Reputation API
+
+Query and manage on-chain reputation scores.
+
+## Get Score
+
+```bash
+GET /api/v1/reputation/:walletAddress
+```
+
+Response:
+```json
+{
+  "walletAddress": "GCBMQ...",
+  "score": 68,
+  "tier": "Bronze",
+  "interestRate": 8,
+  "creditLimit": 2500,
+  "lastUpdated": "2026-05-14T12:00:00Z"
+}
+```
+
+## Score History
+
+```bash
+GET /api/v1/reputation/:walletAddress/history
+Authorization: Bearer {token}
+```
+
+Returns an array of score change events with timestamps
+and reasons.

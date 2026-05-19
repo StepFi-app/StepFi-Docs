@@ -1,0 +1,43 @@
+---
+title: Smart Contracts Overview
+description: All 5 StepFi Soroban contracts
+---
+
+# Smart Contracts
+
+StepFi runs on 5 Soroban smart contracts deployed on
+Stellar testnet. All contracts are open source,
+MIT licensed, and verified.
+
+## Deployed Contracts
+
+| Contract | ID | Explorer |
+|---|---|---|
+| Creditline | CAQDHYG3...MQBS3X | [View](https://stellar.expert/explorer/testnet/contract/CAQDHYG3TALPNXG466SZUMJEPOI7VYV732LPFF3GHE4ASPBCNMIQBS3X) |
+| Reputation | CC3BO57Z...L5SB | [View](https://stellar.expert/explorer/testnet/contract/CC3BO57ZRJGA63QJBIBSOMI25Z3X2I5CYTARYRAUXUAILX6L3OWBL5SB) |
+| Liquidity Pool | CACKE7ML...JS2BT | [View](https://stellar.expert/explorer/testnet/contract/CACKE7ML2BTOAGQTAAW5NEARHCFX4PXXKGEO6GMU6NHFBVYQFZRJS2BT) |
+| Vendor Registry | CCZ6T6NY...AU2L | [View](https://stellar.expert/explorer/testnet/contract/CCZ6T6NYCDNI26VGTPXKKWQDR7JCIZZ24LCEG4MMYHZJAG6BPWIVAU2L) |
+| Parameters | CCAE72SK...IJ5B | [View](https://stellar.expert/explorer/testnet/contract/CCAE72SKYX55C5L56DBEFIMFVXRUIJY6JYLBREHEWRFNOW7AX5NBIJ5B) |
+
+Network: Stellar Testnet
+Deployer: GCOYDYSEHRCFWGXUCMPSQ3ODEY2LGMBSVKKCOFH4NRIK4DEEDSETH7BF
+Deployed: 2026-05-11
+GitHub Release: [v1.0.0](https://github.com/StepFi-app/StepFi-Contracts/releases/tag/v1.0.0)
+
+## Verification
+
+All contract bytecodes match their compiled source.
+SHA256 hashes are published in VERIFICATION.md and
+in the GitHub Release v1.0.0.
+
+To verify yourself:
+```bash
+stellar contract fetch \
+  --id CAQDHYG3TALPNXG466SZUMJEPOI7VYV732LPFF3GHE4ASPBCNMIQBS3X \
+  --network testnet \
+  --out-file /tmp/creditline.wasm
+
+sha256sum /tmp/creditline.wasm
+```
+
+Expected hash: 392ad2562e8836a2836695bb4ed32973bde100b243b5f695ddf2698464541c9e

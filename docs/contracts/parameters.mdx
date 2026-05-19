@@ -1,0 +1,52 @@
+---
+title: Parameters Contract
+description: Protocol governance and configuration
+---
+
+# Parameters Contract
+
+Stores protocol-wide configuration values that govern
+loan terms, reputation thresholds, and fee structures.
+
+**Contract ID**: CCAE72SKYX55C5L56DBEFIMFVXRUIJY6JYLBREHEWRFNOW7AX5NBIJ5B
+
+[View on Stellar Expert](https://stellar.expert/explorer/testnet/contract/CCAE72SKYX55C5L56DBEFIMFVXRUIJY6JYLBREHEWRFNOW7AX5NBIJ5B)
+
+## Functions
+
+### initialize_defaults()
+
+Sets initial protocol parameters. Called once on deployment.
+
+```rust
+pub fn initialize_defaults(env: Env, admin: Address)
+```
+
+### get_parameters()
+
+Returns all current protocol parameters.
+
+```rust
+pub fn get_parameters(env: Env) -> ProtocolParameters
+```
+
+### set_parameters()
+
+Updates protocol parameters. Admin only.
+
+```rust
+pub fn set_parameters(
+    env: Env,
+    params: ProtocolParameters,
+)
+```
+
+## Default Values
+
+| Parameter | Default | Description |
+|---|---|---|
+| min_guarantee_percent | 20 | Minimum guarantee as % of loan |
+| min_reputation_threshold | 50 | Minimum score to qualify |
+| grace_period_days | 5 | Days before late fee applies |
+| late_fee_bps | 200 | Late fee in basis points |
+| large_loan_threshold | 5000 | Amount triggering extra checks |

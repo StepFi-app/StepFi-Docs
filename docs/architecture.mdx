@@ -1,0 +1,74 @@
+---
+title: Architecture
+description: How StepFi's three repos work together
+---
+
+# Architecture
+
+StepFi is built across three repositories that work together as one protocol.
+
+## System Overview
+
+```
+StepFi-App (React Native + Expo)
+        |
+        | REST + JWT
+        v
+StepFi-API (NestJS + Fastify)
+   |                    |
+   | Unsigned XDR        | SQL queries
+   v                    v
+Soroban Contracts      Supabase (PostgreSQL)
+(Stellar Ledger)             |
+   |                    | Cache
+   |              Redis (Upstash)
+   v
+Stellar Horizon
+(Transaction submit)
+```
+
+## Repositories
+
+### StepFi-API
+NestJS backend with Fastify adapter. Handles wallet authentication,
+unsigned XDR construction, and off-chain data storage.
+
+- **Runtime**: Node.js 20
+- **Framework**: NestJS v11 with Fastify
+- **Database**: Supabase (PostgreSQL)
+- **Cache**: Redis via Upstash
+- **Auth**: Stellar wallet signatures plus JWT tokens
+- **Live**: https://stepfi-api.onrender.com/api/v1/docs
+
+### StepFi-Contracts
+5 Soroban smart contracts written in Rust, deployed on Stellar testnet.
+
+- **Language**: Rust
+- **Runtime**: Soroban WASM
+- **Network**: Stellar Testnet
+- **Release**: v1.0.0 with all WASM artifacts
+
+### StepFi-App
+React Native mobile app built with Expo.
+
+- **Framework**: React Native + Expo SDK 52
+- **Navigation**: Expo Router
+- **State**: Zustand
+- **Wallets**: Freighter + Lobstr (WalletConnect v2)
+- **Build**: EAS Build
+
+## Data Flow
+
+### Loan Application Flow
+1. Learner connects wallet (Freighter or Lobstr)
+2. App calls POST /api/v1/auth/nonce
+3. Learner signs nonce with their wallet
+4. App calls POST /api/v1/auth/verify with signed nonce
+5. API verifies signature on Stellar network
+6. API returns JWT access token + refresh token
+7. Learner submits loan application
+8. API builds unsigned XDR calling creditline.create_loan()
+9. App prompts learner to sign XDR with their wallet
+10. API submits signed XDR to Stellar Horizon
+11. Transaction confirmed on ledger
+12. Loan record created in Supabase

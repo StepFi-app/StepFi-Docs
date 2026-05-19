@@ -1,0 +1,47 @@
+---
+title: API Playground
+description: Test StepFi API endpoints interactively
+---
+
+# API Playground
+
+Test every StepFi API endpoint directly in your browser
+using the live Swagger UI.
+
+<Warning>
+The API runs on Stellar testnet. All transactions use
+testnet XLM with no real value.
+</Warning>
+
+## Launch Playground
+
+<Card title="Open Swagger UI" href="https://stepfi-api.onrender.com/api/v1/docs" icon="player-play">
+  Interactive API documentation with live request testing.
+  Test every endpoint directly in your browser.
+</Card>
+
+## Quick Test
+
+To quickly test the API is running:
+
+```bash
+curl https://stepfi-api.onrender.com/api/v1/health
+```
+
+Expected response:
+```json
+{
+  "status": "ok",
+  "timestamp": "2026-05-14T12:00:00Z"
+}
+```
+
+## Get a Test Wallet
+
+To test authenticated endpoints, you need a Stellar
+testnet wallet:
+
+1. Install [Freighter](https://freighter.app) browser extension
+2. Switch to Testnet in Freighter settings
+3. Fund with testnet XLM from [Stellar Friendbot](https://friendbot.stellar.org)
+4. Use POST /auth/nonce then POST /auth/verify to get a JWT
