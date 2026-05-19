@@ -1,0 +1,66 @@
+---
+title: Vendors API
+description: Learning vendor registry endpoints
+---
+
+# Vendors API
+
+Manage and browse verified learning vendors.
+
+## List Vendors
+
+```bash
+GET /api/v1/vendors?category=Electronics&page=1&limit=10
+```
+
+Response:
+```json
+{
+  "data": [
+    {
+      "id": "uuid",
+      "name": "TechBridge Lagos",
+      "category": "Electronics",
+      "country": "Nigeria",
+      "website": "https://techbridgelagos.com",
+      "rating": 4.8
+    }
+  ],
+  "total": 12,
+  "page": 1,
+  "limit": 10
+}
+```
+
+## Get Vendor
+
+```bash
+GET /api/v1/vendors/:id
+```
+
+## Create Vendor (Admin only)
+
+```bash
+POST /api/v1/vendors
+Authorization: Bearer {admin_token}
+Content-Type: application/json
+
+{
+  "name": "TechBridge Lagos",
+  "category": "Electronics",
+  "country": "Nigeria",
+  "city": "Lagos",
+  "website": "https://techbridgelagos.com",
+  "description": "Electronics and laptop retailer"
+}
+```
+
+## Vendor Categories
+
+| Category | Description |
+|---|---|
+| Electronics | Laptops, phones, and dev hardware |
+| Bootcamp | Intensive coding programs |
+| OnlineCourse | Self-paced online learning |
+| School | Accredited institutions |
+| DevTools | Software subscriptions and tools |

@@ -1,0 +1,63 @@
+---
+title: Vouching API
+description: Mentor vouching system endpoints
+---
+
+# Vouching API
+
+Manage mentor vouches for learners.
+
+<Warning>
+The vouching contract is currently in development.
+These endpoints will be fully functional in Phase 2.
+</Warning>
+
+## Get Vouches for Learner
+
+```bash
+GET /api/v1/vouching/learner/:walletAddress
+```
+
+Response:
+```json
+{
+  "vouches": [
+    {
+      "id": "uuid",
+      "mentor": "GDVKP...8N3Q",
+      "learner": "GCBMQ...4X7F",
+      "reputationBoost": 12,
+      "expiresAt": "2026-11-14T00:00:00Z",
+      "active": true
+    }
+  ]
+}
+```
+
+## Create Vouch
+
+```bash
+POST /api/v1/vouching
+Authorization: Bearer {mentor_token}
+Content-Type: application/json
+
+{
+  "learnerAddress": "GCBMQ7YH..."
+}
+```
+
+Returns unsigned XDR for mentor to sign.
+
+## Revoke Vouch
+
+```bash
+DELETE /api/v1/vouching/:id
+Authorization: Bearer {mentor_token}
+```
+
+## Get My Vouches Given
+
+```bash
+GET /api/v1/vouching/given
+Authorization: Bearer {mentor_token}
+```

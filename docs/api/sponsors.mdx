@@ -1,0 +1,62 @@
+---
+title: Sponsors API
+description: Sponsor profile management endpoints
+---
+
+# Sponsors API
+
+Manage sponsor profiles and view pool activity.
+
+## Get Sponsor Profile
+
+```bash
+GET /api/v1/sponsors/profile
+Authorization: Bearer {token}
+```
+
+Response:
+```json
+{
+  "walletAddress": "GDKFP...9M2R",
+  "name": "TechFund DAO",
+  "type": "DAO",
+  "totalDeposited": 500000000000,
+  "currentValue": 500247000000,
+  "loansSupported": 3,
+  "joinedAt": "2026-05-14T00:00:00Z"
+}
+```
+
+## Update Sponsor Profile
+
+```bash
+PATCH /api/v1/sponsors/profile
+Authorization: Bearer {token}
+Content-Type: application/json
+
+{
+  "name": "TechFund DAO",
+  "type": "DAO",
+  "website": "https://techfund.xyz",
+  "bio": "Funding the next generation of African developers"
+}
+```
+
+## Get Funded Loans
+
+```bash
+GET /api/v1/sponsors/loans?page=1&limit=10
+Authorization: Bearer {token}
+```
+
+Returns loans currently backed by the pool
+that this sponsor has contributed to.
+
+## Sponsor Types
+
+| Type | Description |
+|---|---|
+| Individual | Single person sponsor |
+| Company | Corporate sponsor |
+| DAO | Decentralized autonomous organization |
+| Foundation | Non-profit or grant foundation |

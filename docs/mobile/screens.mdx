@@ -1,0 +1,95 @@
+---
+title: App Screens
+description: StepFi mobile app screen reference
+---
+
+# App Screens
+
+Overview of all screens in the StepFi mobile app.
+
+## Auth Screens
+
+### Sign In
+Entry point for all users. Shows wallet connection
+options (Freighter and Lobstr) with a 4-step
+onboarding slideshow.
+
+**Route**: app/(auth)/sign-in.tsx
+
+### Role Selection
+After wallet connection, the user selects their role:
+Learner or Sponsor.
+
+**Route**: app/(auth)/role-select.tsx
+
+### Learner Onboarding
+4-step profile form collecting name, background,
+skills, finance goals, and optional social links.
+Similar to Upwork onboarding.
+
+**Route**: app/(auth)/onboarding.tsx
+
+**Steps**:
+1. Personal info (name, bio, country)
+2. Background (role, institution, income)
+3. Skills and finance goals (multi-select chips)
+4. Online presence (GitHub, LinkedIn — optional)
+
+## Learner Screens
+
+### Home Dashboard
+Main screen for learners. Shows credit available,
+quick actions, active loans, and upcoming payments.
+
+**Route**: app/(tabs)/index.tsx (learner role)
+
+### Apply for Loan
+4-step loan application wizard:
+1. Vendor selection with search and category filter
+2. Loan details with amount slider and installment calculator
+3. Review and confirm with wallet signing
+4. Success with transaction hash
+
+**Route**: app/(tabs)/apply.tsx
+
+### My Loans
+List of all active and past loans with installment
+progress bars and payment history.
+
+**Route**: app/(tabs)/loans.tsx
+
+### Reputation Score
+Circular progress ring showing current score, tier
+badge, stats row, and path to next tier.
+
+**Route**: app/(tabs)/reputation.tsx
+
+## Sponsor Screens
+
+### Sponsor Home
+Portfolio overview with total deposited, pool stats,
+active loans funded, and deposit button.
+
+**Route**: app/(tabs)/sponsor-home.tsx
+
+## Shared Screens
+
+### Settings
+Profile card, role switcher, notification settings,
+connected wallet, and disconnect option.
+
+**Route**: app/(tabs)/settings.tsx
+
+## Screen Status
+
+| Screen | Status |
+|---|---|
+| Sign In | In Development |
+| Role Selection | In Development |
+| Learner Onboarding | In Development |
+| Home Dashboard | Planned |
+| Apply for Loan | Planned |
+| My Loans | Planned |
+| Reputation Score | Planned |
+| Sponsor Home | Planned |
+| Settings | Planned |

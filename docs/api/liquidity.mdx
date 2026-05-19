@@ -1,0 +1,72 @@
+---
+title: Liquidity API
+description: Sponsor liquidity pool endpoints
+---
+
+# Liquidity API
+
+Interact with the StepFi liquidity pool.
+
+## Get Pool Info
+
+```bash
+GET /api/v1/liquidity/pool
+```
+
+Response:
+```json
+{
+  "totalDeposits": 48320000000,
+  "totalShares": 4710000000,
+  "sharePrice": 10260000,
+  "availableLiquidity": 31200000000,
+  "lockedLiquidity": 17120000000,
+  "apy": 12.4
+}
+```
+
+## Deposit
+
+```bash
+POST /api/v1/liquidity/deposit
+Authorization: Bearer {token}
+Content-Type: application/json
+
+{
+  "amount": 500000000000
+}
+```
+
+Returns unsigned XDR for sponsor to sign.
+
+## Withdraw
+
+```bash
+POST /api/v1/liquidity/withdraw
+Authorization: Bearer {token}
+Content-Type: application/json
+
+{
+  "shares": 48730000000
+}
+```
+
+Returns unsigned XDR for sponsor to sign.
+
+## Get My Position
+
+```bash
+GET /api/v1/liquidity/position
+Authorization: Bearer {token}
+```
+
+Response:
+```json
+{
+  "shares": 48730000000,
+  "currentValue": 500247000000,
+  "deposited": 500000000000,
+  "earned": 247000000,
+  "earnedPercent": 0.05
+}
+```
